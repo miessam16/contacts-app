@@ -27,13 +27,14 @@
 
     <!-- floating action button -->
     <div class="fixed-action-btn">
-        <a id="menu" class="btn btn-floating btn-large light_blue" href="#modal1" data-position="left" data-delay="50" data-tooltip="option">
+        <a id="menu" class="btn btn-floating btn-large light_blue" href="#addModal"
+           data-position="left" data-delay="50" data-tooltip="option">
             <i class="material-icons">add</i>
         </a>
     </div>
 
     <!-- Modal1 Structure  (Add new contact)-->
-    <div id="modal1" class="modal thin">
+    <div id="addModal" class="modal thin">
         <div class="modal-content ">
             <h4>Add contact</h4>
             <p>Add Contact phone/address details and have them displayed on your App</p>
@@ -104,6 +105,19 @@
                     </form>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <h4>Delete contant</h4>
+            <p>this is just to make sure that you wish to delete the contact</p>
+        </div>
+        <div class="modal-footer">
+            <a csrf-token="{{ csrf_token() }}"
+               onclick="deleteContact(event)" href="{{ url('/delete-contact') }}" id="deleteButton"
+               class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
         </div>
     </div>
 

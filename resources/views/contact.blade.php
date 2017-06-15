@@ -1,11 +1,11 @@
-<li class="avatar">
+<li data-id= "{{ $contact->getKey() }}" class="avatar">
     <div class="collapsible-header">
         <img class="circle user_image_list" src="{{ url('storage/images') }}/{{ $contact->image_url }}" alt="">
         <div class="text_content">
             <p class="user_text name user_name_list">{{ $contact->name }}</p>
             <p class="user_text phone user_phone_list">{{ $contact->phone }}</p>
         </div>
-        <a href="#!" class="secondary-content dropdown-button" href='#' data-activates="dropdown2">
+        <a href="#!" class="secondary-content dropdown-button" href='#' data-activates="contact_{{ $contact->getKey() }}">
             <i class="material-icons">more_vert</i>
         </a>
         <div style="clear:both"></div>
@@ -35,4 +35,9 @@
 
         </ul>
     </div>
+
+    <ul id='contact_{{ $contact->getKey() }}' class='dropdown-content'>
+        <li id="edit_data_btn"><a data-id="{{ $contact->getKey() }}" href="#modal3">Edit</a></li>
+        <li><a class="deleteItem" onclick="setContactId(event)" data-id="{{ $contact->getKey() }}" href="#modal2">Delete</a></li>
+    </ul>
 </li>

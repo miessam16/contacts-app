@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Contact;
 use App\Http\Requests\ContactRequest;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -30,6 +29,14 @@ class HomeController extends Controller
         return view('home', ['contacts'=> \request()->user()->contacts]);
     }
 
+    /**
+     * Add Contact to the database
+     * Store the image into storage/app/img/ directory
+     * @param ContactRequest $request
+     * @param Contact $contactModel
+     * @return view of the contact card
+     */
+
 
     public function addContact (ContactRequest $request, Contact $contactModel){
 
@@ -42,5 +49,12 @@ class HomeController extends Controller
         $request['user_id'] = $request->user()->id;
         return view('contact')->with(['contact'=>
             $contactModel->create($request->except('_token','image'))]);
+    }
+
+    public function deleteContact($id, Contact $contactModel){
+
+        $contactModel->findOrFail($id)->delete();
+
+        return ['success'=>true];
     }
 }

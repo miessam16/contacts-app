@@ -34,6 +34,6 @@ class User extends Authenticatable
 
     public function contacts(){
 
-        return $this->hasMany(Contact::class);
+        return $this->hasMany(Contact::class)->orderBy('id', 'desc');
     }
 }

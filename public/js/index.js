@@ -5,7 +5,9 @@ $(document).ready(function () {
     //responsive slide navigation
     $(".button-collapse").sideNav();
     //drop down menus
-    $(".dropdown-button").dropdown();
+    $('body').delegate('.dropdown-button','click',function () {
+        $(this).dropdown();
+    });
     Materialize.updateTextFields();
 
     $("#edit_data_btn").click(function () {
@@ -39,6 +41,8 @@ $(document).ready(function () {
     });
 
 });
+
+
 
 
 //Handle change in the image input
@@ -101,7 +105,7 @@ function addContact(e) {
         success:function (res) {
             form.reset();
             $(form).find('#uploadedImage').fadeOut();
-            $('#modal1').modal('close');
+            $('#addModal').modal('close');
             $('#contactsList').prepend(res);
             Materialize.toast('Your contact has been added',1000);
         },
@@ -112,4 +116,39 @@ function addContact(e) {
 
     });
 
+}
+
+// Set the contact id on the delete modal and open the modal
+
+function setContactId(e) {
+    $('#deleteButton').attr('data-id', e.target.getAttribute('data-id'));
+    $('#deleteModal').modal('open');
+}
+
+
+//Delete contact , close deleteModal on success
+function deleteContact(e) {
+    e.preventDefault();
+    var contact_id = e.target.getAttribute('data-id');
+    var _token = e.target.getAttribute('csrf-token');
+
+    $.ajax({
+        url : e.target.getAttribute('href')+'/'+contact_id,
+        method:"POST",
+        data:{
+            _token:_token,
+            _method:'DELETE'
+        },
+        success:function (response) {
+            $('li[data-id='+contact_id+']').remove();
+            $('#deleteModal').modal('close');
+            Materialize.toast('The contact has removed successfully',4000);
+
+        },
+        error: function (xhr,status,err) {
+
+            Materialize.toast('An error occured while removing your contact');
+        }
+
+    })
 }
