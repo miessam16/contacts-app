@@ -17,7 +17,11 @@
     <div class="container">
 
         <div class="row">
-            <ul id="contactsList" class="collapsible popout" data-collapsible="accordion"></ul>
+            <ul id="contactsList" class="collapsible popout" data-collapsible="accordion">
+                @foreach($contacts as $contact)
+                    @include('contact', ['contact'=>$contact])
+                @endforeach
+            </ul>
         </div>
     </div>
 

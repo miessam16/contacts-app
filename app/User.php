@@ -26,4 +26,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Define one to many relation between the user and contacts table
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+
+    public function contacts(){
+
+        return $this->hasMany(Contact::class);
+    }
 }
