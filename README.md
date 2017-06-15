@@ -17,13 +17,13 @@
 
 ### 4.Create a database
 
-- Open your terminal and write `mysql -u mysql-user -p` and enter the password
+- Open your terminal and write `mysql -u mysql-user -p` then enter the password
 - Run the following command `CREATE DATABASE your-database-name`
 
 ### 5.Install the application
 
 - Create a directory for the application
-- Open your terminal in this directore and run `git clone https://github.com/miessam16/contacts-app.git` to download the project code
+- Open your terminal in this directory and run `git clone https://github.com/miessam16/contacts-app.git` to download the project code
 - Then run `composer install` to install laravel packages
 - Edit .env file and add the database name , user and password
 - Migrate the database tables by using `php artisan migrate` command
