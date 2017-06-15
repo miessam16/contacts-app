@@ -8,7 +8,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Contacts App</title>
+        <title>Contacts App - @yield('title')</title>
         <link rel="icon" href="{{ url('img/icon.png') }}">
 
         <!--Import Google Icon Font-->
