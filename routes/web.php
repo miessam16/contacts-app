@@ -24,4 +24,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::post('/add-contact', 'HomeController@addContact')->name('add-contact');
+Route::patch('/edit-contact', 'HomeController@editContact')->name('add-contact');
 Route::delete('/delete-contact/{id}', 'HomeController@deleteContact')->name('delete-contact');

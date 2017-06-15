@@ -25,7 +25,10 @@
 
             <li class="collection-item ">
                 <i class="material-icons">date_range</i>
-                <span class="title">{{ $contact->birthday->diff(\Carbon\Carbon::now())->format('%y years') }}</span></span>
+                <span value="{{ $contact->birthday->toDateString() }}"
+                      class="title user_date_list">
+                    {{ $contact->birthday->diff(\Carbon\Carbon::now())->format('%y years') }}</span>
+                </span>
             </li>
 
             <li class="collection-item ">
@@ -37,7 +40,8 @@
     </div>
 
     <ul id='contact_{{ $contact->getKey() }}' class='dropdown-content'>
-        <li id="edit_data_btn"><a data-id="{{ $contact->getKey() }}" href="#modal3">Edit</a></li>
-        <li><a class="deleteItem" onclick="setContactId(event)" data-id="{{ $contact->getKey() }}" href="#modal2">Delete</a></li>
+        <li data-id="{{ $contact->getKey() }}" class="edit_data_btn"><a  href="#editModal">Edit</a></li>
+        <li><a class="deleteItem" onclick="setContactId(event)" data-id="{{ $contact->getKey() }}"
+               href="#deleteModal">Delete</a></li>
     </ul>
 </li>
