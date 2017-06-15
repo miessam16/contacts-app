@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.app');
-});
+Route::get('/', 'Auth\LoginController@login');
 
 Route::get('/logout','Auth\LoginController@logout');
 
