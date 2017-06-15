@@ -20,7 +20,7 @@ class ListContactsTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $user = factory(User::class)->create();
             $contacts = factory(Contact::class, 10)->create(['user_id'=>$user->id,
-                'image_url'=>__DIR__.'/files/user.jpg']);
+                'image_url'=>'user.jpg']);
 
             $browser->loginAs($user)
                 ->visit('/home');
