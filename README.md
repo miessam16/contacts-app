@@ -28,6 +28,7 @@
 - Edit .env file and add the database name , user and password
 - Migrate the database tables by using `php artisan migrate` command
 - Seed the mock data to the database by using `php artisan db:seed` command
+- Link the storage public directort to the public directory by using `php artisan storage:link`
 
 ### 6.Running the project
 
