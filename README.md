@@ -33,4 +33,4 @@
 ### 6.Running the project
 
 - Now just run `php artisan serve` and go to localhost:8000 in your browser to check the project you can login using the following credentials **admin@test.com** **secret** or you can register with a new user
-- To run the tests use the following command `php artisan dusk`
+- To run the tests use the following command `php artisan dusk` please make sure that you have Chrome installed in your environment
